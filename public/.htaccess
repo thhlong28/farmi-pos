@@ -1,0 +1,9 @@
+RewriteEngine On
+RewriteBase /farmi-pos/public/
+
+# Nếu là file hoặc thư mục có thật thì bỏ qua
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Còn lại, đẩy tất cả về index.php dưới dạng biến url
+RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
